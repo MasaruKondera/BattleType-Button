@@ -2,15 +2,18 @@
 
 Warning: This mod is not compatible out of the box with other modifications that edit the service_lib.swf file.
 If you want to use this mod with your other mods, either ask your mod creator to create a patch for you, or do it yourself 
-via the patch tutorial below. Other mods that also edit the uss_settings.xml file work when you add this modification to this file.
+via the patch tutorial below. Other mods that also edit the uss_settings.xml are compatible with this mod.
 
-**1. Copy the "res_mods" folder**
-You want to copy the res_mods folder from the latest release into the latest version directory from WoWs located in the bin folder.  
-It will look similar to this: "C:\World_of_Warships\bin\5045210" 
+**1. Copy the "res_mods" folder**  
+Just copy the res_mods folder from this release into the latest version directory from WoWs located in the bin folder.  
+It will look similar to this: 
+```
+C:\World_of_Warships\bin\5045210
+```
 
-In case the system asks you to overwrite the uss_settings.xml file, then do not overwrite it and continue with 2.
+_In case the system asks you to overwrite the uss_settings.xml file, then do not overwrite it and continue with 2._
 
-**2. This step is only needed when your system asked you to overwrite the uss_settings.xml file**
+**2. This step is only needed when your system asked you to overwrite the uss_settings.xml file**  
 Open up the already existing uss_settings.xml file and add the following lines in the mods block.
 ```xml
 <mods>
@@ -26,6 +29,36 @@ Open up the already existing uss_settings.xml file and add the following lines i
 </mods>
 ``` 
 
+---
+
+# HowTo: Uninstall this modification
+
+**1. Delete the following directory**
+
+```
+/gui/unbound/mods/BattleType-Button
+```
+
+**2. Delete the following files**  
+_Warning: Only delete these files in case you do not have other mods installed. Otherwise continue with 3._ 
+```
+/gui/flash/service_lib.swf
+/gui/uss_settings.xml
+```
+
+**3. Restore the service_lib.swf backup**  
+Replace the service_lib.swf file with your backed up version. If you do not have any mods installed that mod this file, then you can just delete it.
+
+**4. Remove File Entries inside the uss_settings.xml file**
+Open up the uss_settings.xml file and remove the following entries:
+
+````xml
+<xmlfile>../unbound/mods/BattleType-Button/BattleButton.xml</xmlfile>
+<swffile>../unbound/mods/BattleType-Button/BattleButton.swf</swffile>
+````
+Save the file.
+
+Now you have uninstalled the mod successfully.
 
 ---
 
@@ -37,7 +70,8 @@ with this modification.
 ## Preparations
 &emsp;Install [JPEXS FFdec](https://github.com/jindrapetrik/jpexs-decompiler/releases)  
 &emsp;Extract the service_lib.swf file via the [WoWs Unpacker](https://forum.worldofwarships.com/topic/183662-all-wows-unpack-tool-unpack-game-client-resources/) or use an already existing file from another  
-&emsp;modification.
+&emsp;modification.  
+&emsp;Create a backup of your current service_lib.swf file you want to mod.
 ## Patching the service_lib.swf
 **1. Open the service_lib.swf file with FFdec**  
 
