@@ -62,6 +62,12 @@ Now you have uninstalled the mod successfully.
 
 ---
 
+# Updates
+
+**0.11.1**: Added an own BattleType Button for the Training Room.
+
+---
+
 # HowTo: Patch your own service_lib.swf file
 
 In this tutorial I will try to explain, how to make your modification compatible
@@ -143,3 +149,4 @@ Line 17: color="#e9e9e9"
 
 [^1]: ![Normal Glow RGB (153,153,153)](patching/tutorial_images/normal_glow.png)  
 [^2]: ![Hover Glow RGB (204,204,204)](patching/tutorial_images/hover_glow.png)
+

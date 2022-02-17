@@ -30,13 +30,14 @@
 				<position value="absolute"/>
 			</style>
 			<bind name="watch" value="'mod_test_bg_url'; ('url:../unbound/mods/BattleType-Button/images/' + 
-					(selectedBattle.type == SC.Common.BATTLE_TYPES.RANKED_BATTLE 		? 	'ranked_bg' :
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.CLAN_BATTLE   		? 	'clan_bg'   :
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.RANDOM_BATTLE 		? 	'random_bg' :
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.PVE_BATTLE    		? 	'pve_bg'    :
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.COOPERATIVE_BATTLE	?	'coop_bg'  	:
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.EVENT_BATTLE  		? 	'event_bg'  :
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.BRAWL_BATTLE  		? 	'brawl_bg'  :
+					(selectedBattle.type == SC.Common.BATTLE_TYPES.RANKED_BATTLE 		? 	'ranked_bg' 	:
+					 selectedBattle.type == SC.Common.BATTLE_TYPES.CLAN_BATTLE   		? 	'clan_bg'   	:
+					 selectedBattle.type == SC.Common.BATTLE_TYPES.RANDOM_BATTLE 		? 	'random_bg' 	:
+					 selectedBattle.type == SC.Common.BATTLE_TYPES.PVE_BATTLE    		? 	'pve_bg'    	:
+					 selectedBattle.type == SC.Common.BATTLE_TYPES.COOPERATIVE_BATTLE	?	'coop_bg'  		:
+					 selectedBattle.type == SC.Common.BATTLE_TYPES.EVENT_BATTLE  		? 	'event_bg'  	:
+					 selectedBattle.type == SC.Common.BATTLE_TYPES.BRAWL_BATTLE  		? 	'brawl_bg'  	:
+					 selectedBattle.type == SC.Common.BATTLE_TYPES.TRAINING_BATTLE      ?   'training_bg'	:
 																							'general_bg') + '.png')"/>
 			<bind name="style" value="'backgroundImage'; mod_test_bg_url"/>-->
 		</block>
