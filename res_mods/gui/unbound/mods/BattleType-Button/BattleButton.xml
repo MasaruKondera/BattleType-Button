@@ -2,18 +2,16 @@
 	
 	<!-- start_battle_button -->
 	<block className="StartBattleButtonBig">
-		<bind name="firstEntityDH" value="'resourceEntity'; CC.accountResource"/>
-		<bind name="watchDH" value="'operationsAccountLocked';	['resourceEntity.accountResource.evOperationsLockChanged'];	resourceEntity.accountResource.operationsLocked"/>
 		<bind name="collectionDH" value="CC.ownShip; 'shipsInFormation'; 'shipsInFormation'"/>
 		<bind name="firstEntityDH" value="'dockEntity'; CC.dockDataMarker"/>
 		<bind name="watchDH" value="'shipId'; ['dockEntity.shipSelection.evShipUpdate']; dockEntity.shipSelection.currentShipId"/>
 		<bind name="watchDH" value="'shipIdForModuleInset'; ['dockEntity.shipSelection.evShipViewUpdate']; dockEntity.shipSelection.currentShipIdForModuleInset"/>
 		<bind name="watchDH" value="'shipIdForResearch'; ['dockEntity.shipSelection.evShipUpdate'] ; dockEntity.shipSelection.currentShipIdForResearch"/>
-		<bind name="firstEntityDH" value="'enterBattleEntity'; CC.enterBattle"/>
-		<bind name="watchDH" value="'selectedBattle'; ['enterBattleEntity.enterBattle.evBattleTypesChanged']; enterBattleEntity.enterBattle.selectedBattle"/>
-		<bind name="primaryEntityDH" value="'battleTypeEntity'; CC.battleType; selectedBattle.type"/>
+		<bind name="collectionDH" value="CC.battleType; 'selectedBattleTypes'; 'selected'"/>
+		<bind name="watch" value="'selectedBattleType'; selectedBattleTypes[0].battleType.type"/>
+		<bind name="primaryEntityDH" value="'battleTypeEntity'; CC.battleType; selectedBattleType"/>
 		<bind name="watchDH" value="'fightButtonDenyReasons'; ['battleTypeEntity.battleType.evDisableReasonChanged']; battleTypeEntity.battleType.fightButtonReasons"/>
-		<bind name="watch" value="'buttonEnabled'; ((fightButtonDenyReasons.length == 0) &amp;&amp; (operationsAccountLocked != true))"/>
+		<bind name="watch" value="'buttonEnabled'; fightButtonDenyReasons.length == 0"/>
 		<bind name="primaryEntityDH" value="'shipEntity'; CC.ship; shipId; 'evUpdate'"/>
 		<bind name="watchDH" value="'shipInfo'; ['shipEntity.ship.evUpdate', 'shipEntity.ship.evCurrentSkinChanged', 'shipEntity.ship.evFlagNameWithCrewChanged']; shipEntity.ship"/>
 		<style>
@@ -30,14 +28,14 @@
 				<position value="absolute"/>
 			</style>
 			<bind name="watch" value="'mod_test_bg_url'; ('url:../unbound/mods/BattleType-Button/images/' + 
-					(selectedBattle.type == SC.Common.BATTLE_TYPES.RANKED_BATTLE 		? 	'ranked_bg' 	:
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.CLAN_BATTLE   		? 	'clan_bg'   	:
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.RANDOM_BATTLE 		? 	'random_bg' 	:
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.PVE_BATTLE    		? 	'pve_bg'    	:
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.COOPERATIVE_BATTLE	?	'coop_bg'  		:
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.EVENT_BATTLE  		? 	'event_bg'  	:
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.BRAWL_BATTLE  		? 	'brawl_bg'  	:
-					 selectedBattle.type == SC.Common.BATTLE_TYPES.TRAINING_BATTLE      ?   'training_bg'	:
+					(selectedBattleType == SC.Common.BATTLE_TYPES.RANKED_BATTLE 		? 	'ranked_bg' 	:
+					 selectedBattleType == SC.Common.BATTLE_TYPES.CLAN_BATTLE   		? 	'clan_bg'   	:
+					 selectedBattleType == SC.Common.BATTLE_TYPES.RANDOM_BATTLE 		? 	'random_bg' 	:
+					 selectedBattleType == SC.Common.BATTLE_TYPES.PVE_BATTLE    		? 	'pve_bg'    	:
+					 selectedBattleType == SC.Common.BATTLE_TYPES.COOPERATIVE_BATTLE	?	'coop_bg'  		:
+					 selectedBattleType == SC.Common.BATTLE_TYPES.EVENT_BATTLE  		? 	'event_bg'  	:
+					 selectedBattleType == SC.Common.BATTLE_TYPES.BRAWL_BATTLE  		? 	'brawl_bg'  	:
+					 selectedBattleType == SC.Common.BATTLE_TYPES.TRAINING_BATTLE      ?   'training_bg'	:
 																							'general_bg') + '.png')"/>
 			<bind name="style" value="'backgroundImage'; mod_test_bg_url"/>-->
 		</block>
@@ -50,10 +48,10 @@
 			<bind name="action" value="'buttonClick'; 'onBattleButtonClick'; {}"/>
 			<bind name="enabled" value="buttonEnabled"/>
 			<bind name="tooltip" value="'StartBattleTooltip'; buttonEnabled &amp;&amp; !_tooltipDisabled ?	{	_shipID: shipsInFormation.length &gt; 0	? shipsInFormation[0].ownShip.id 
-																																: shipId,
-																						_battleType: selectedBattle.type,
-																						_instructionType: 'left'}
-																				: null"/>
+																															: shipId,
+																					_battleType: selectedBattleType,
+																					_instructionType: 'left'}
+																			: null"/>
 		</block>
 	</block>
 </ui>
